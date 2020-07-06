@@ -1,21 +1,29 @@
-
-
-
-function getColor() {
-    
-    const btnRouge = document.getElementById('rouge');
-    const btnVert = document.getElementById('vert');
-    const btnOrange = document.getElementById('orange');
-
-
-    btnRouge.addEventListener('click', function (event) {
-        document.getElementById('colored').setAttribute('style', 'background-color: red')
-    });
-
-    btnVert.addEventListener('click', function (event) {
-        document.getElementById('colored').setAttribute('style', 'background-color: green')
-    });
-    btnOrange.addEventListener('click', function (event) {
-        document.getElementById('colored').setAttribute('style', 'background-color: orange')
-    });
+const setColor = elt => {
+  switch (elt.id) {
+    case 'vert':
+      document.getElementById('colored').style.backgroundColor = 'green'
+      break
+    case 'orange':
+      document.getElementById('colored').style.backgroundColor = 'orange'
+      break
+    case 'rouge':
+      document.getElementById('colored').style.backgroundColor = 'red'
+      break
+    default:
+      document.getElementById('colored').style.backgroundColor = 'transparent'
+      break
+  }
 }
+
+const btnVert = document.getElementById('vert')
+btnVert.addEventListener('click', () => setColor(btnVert))
+
+const btnOrange = document.getElementById('orange')
+btnOrange.addEventListener('click', () => {
+  setColor(btnOrange)
+})
+
+const btnRouge = document.getElementById('rouge')
+btnRouge.addEventListener('click', () => {
+  setColor(btnRouge)
+})
