@@ -1,12 +1,11 @@
-const fs = require('fs');
-const http = require('http');
-//////////content
+const fs = require('fs')
 
-//////////Server
-const server = http.createServer((req, res) =>{
-    res.end('Salut');
+const http = require('http')
+
+const server = http.createServer((req, res) => {
+  res.end('Salut à toi')
 })
 
-server.listen(8000,'127.0.0.1',()=>{
-    console.log('Server sur port 8000');
+server.listen(8000, '127.0.0.1', () => {
+  console.log('Server running on http://localhost:8000')
 })
