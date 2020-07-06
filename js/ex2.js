@@ -16,7 +16,5 @@ buttons.forEach(button => {
         document.getElementById('colored').style.backgroundColor = 'transparent'
         break
     }
-
-    // document.getElementById('colored').innerHTML = event.srcElement.innerText
   })
 })
