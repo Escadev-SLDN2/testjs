@@ -1,22 +1,31 @@
-// 1. On demande le prénom de l'utilisateur
-let prenom = ''
-while (!prenom) {
-  prenom = window.prompt('Veuillez indiquer votre prénom')
+let helloPar = ''
+let deletePar = ''
+
+const createPar = () => {
+  // 1. On demande le prénom de l'utilisateur
+  let prenom = ''
+  while (!prenom) {
+    prenom = window.prompt('Veuillez indiquer votre prénom')
+  }
+
+  // 2. On met ce prénom dans un nouveau paragraphe
+  helloPar = document.createElement('p')
+  helloPar.className = 'hello'
+  helloPar.innerHTML = 'Bonjour ' + prenom
+  document.getElementById('container').appendChild(helloPar)
+
+  helloPar.innerHTML += ' &#128521;'
+
+  // 3. On crée un bouton pour supprimer le paragraphe
+  deletePar = document.createElement('button')
+  deletePar.innerHTML = 'Supprimer le paragraphe'
+  deletePar.addEventListener('click', event => {
+    helloPar.remove()
+    event.srcElement.remove()
+    createPar()
+  })
+  document.getElementById('container').appendChild(deletePar)
 }
 
-// 2. On met ce prénom dans un nouveau paragraphe
-const helloPar = document.createElement('p')
-helloPar.className = 'hello'
-helloPar.id = 'helloPar'
-helloPar.innerHTML = 'Bonjour ' + prenom
-document.getElementById('container').appendChild(helloPar)
-
-// 3. On modifie ce nouveau paragraphe à la volée
-document.getElementById('helloPar').innerHTML += ' &#128521;'
-
-// 4. On supprime le paragraphe grâce au bouton
-const deletePar = document.getElementById('deletePar')
-deletePar.addEventListener('click', event => {
-  document.getElementById('helloPar').remove()
-  event.srcElement.remove()
-})
+// 4. Première initialisation
+window.addEventListener('load', createPar)
