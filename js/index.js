@@ -1,7 +1,12 @@
-const helloStr = 'Hello the world !!!'
+const fs = require('fs');
+const http = require('http');
+//////////content
 
-console.log(helloStr)
+//////////Server
+const server = http.createServer((req, res) =>{
+    res.end('Salut');
+})
 
-if (typeof document !== 'undefined') {
-  document.getElementById('console').innerHTML = helloStr
-}
+server.listen(8000,'127.0.0.1',()=>{
+    console.log('Server sur port 8000');
+})
