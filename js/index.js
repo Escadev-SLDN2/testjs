@@ -2,4 +2,6 @@ const helloStr = 'Hello the world !!!'
 
 console.log(helloStr)
 
-document.getElementById('console').innerHTML = helloStr
+if (typeof document !== 'undefined') {
+  document.getElementById('console').innerHTML = helloStr
+}
