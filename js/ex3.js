@@ -12,6 +12,11 @@ helloPar.innerHTML = 'Bonjour ' + prenom
 document.getElementById('container').appendChild(helloPar)
 
 // 3. On modifie ce nouveau paragraphe à la volée
-if (window.confirm('Un petit smiley ?')) {
-  document.getElementById('helloPar').innerHTML += ' &#128540;'
-}
+document.getElementById('helloPar').innerHTML += ' &#128521;'
+
+// 4. On supprime le paragraphe grâce au bouton
+const deletePar = document.getElementById('deletePar')
+deletePar.addEventListener('click', event => {
+  document.getElementById('helloPar').remove()
+  event.srcElement.remove()
+})
