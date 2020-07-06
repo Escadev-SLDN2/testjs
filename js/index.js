@@ -1,7 +1,6 @@
-const helloStr = 'Hello the world !!!'
+let nom = ''
 
-console.log(helloStr)
-
-if (typeof document !== 'undefined') {
-  document.getElementById('console').innerHTML = helloStr
+while (!nom) {
+  nom = window.prompt('Saisissez votre message')
 }
+document.getElementById('console').innerHTML += nom
