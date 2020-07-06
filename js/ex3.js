@@ -15,3 +15,11 @@ document.getElementById('container').appendChild(helloPar)
 if (window.confirm('Un petit smiley ?')) {
   document.getElementById('helloPar').innerHTML += ' &#128540;'
 }
+
+function supprimer(){
+    var zone = document.getElementById('container');
+    var zone2 = document.getElementById('btn');
+    var parent = document.body;
+    parent.removeChild(zone);
+    parent.removeChild(zone2);
+}
