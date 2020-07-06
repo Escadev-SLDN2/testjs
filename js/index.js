@@ -1,7 +1,4 @@
-const helloStr = 'Hello the world !!!'
+let Reponse = '';
 
-console.log(helloStr)
-
-if (typeof document !== 'undefined') {
-  document.getElementById('console').innerHTML = helloStr
-}
+Reponse = window.prompt('Quelle est la réponse ?', '');
+document.getElementById("console").innerHTML = Reponse;
