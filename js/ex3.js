@@ -1,6 +1,6 @@
 let helloPar = ''
 let deletePar = ''
-let resetPar= ''
+let resetPar = ''
 
 const createPar = () => {
   // 1. On demande le prénom de l'utilisateur
@@ -21,28 +21,31 @@ const createPar = () => {
   deletePar = document.createElement('button')
   deletePar.innerHTML = 'Supprimer le paragraphe'
   deletePar.addEventListener('click', event => {
-	helloPar.remove()
-	event.srcElement.remove()
-	bouclePar()
+    helloPar.remove()
+    event.srcElement.remove()
+    bouclePar()
   })
   document.getElementById('container').appendChild(deletePar)
 }
 
 // bouton reset
 const bouclePar = () => {
-	resetPar = document.createElement('p')
-	resetPar = document.createElement('button')
-	resetPar.innerHTML = 'Réessayer'
-	resetPar.addEventListener('click', event => {
-		resetPar.remove()
-		event.srcElement.remove()
-		const reset = new Promise((resolve, reject) => {
-			setTimeout(() => {
-				createPar()
-			}, 300);
-		});
-	})
-	document.getElementById('container').appendChild(resetPar)
+  resetPar = document.createElement('button')
+  resetPar.innerHTML = 'Réessayer'
+  resetPar.addEventListener('click', event => {
+    event.srcElement.remove()
+
+    const reset = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('ok')
+      }, 300)
+    })
+
+    reset.then(value => {
+      createPar()
+    })
+  })
+  document.getElementById('container').appendChild(resetPar)
 }
 
 // 4. Première initialisation
