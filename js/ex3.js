@@ -34,9 +34,13 @@ const bouclePar = () => {
 	resetPar = document.createElement('button')
 	resetPar.innerHTML = 'Réessayer'
 	resetPar.addEventListener('click', event => {
-		createPar()
 		resetPar.remove()
 		event.srcElement.remove()
+		const reset = new Promise((resolve, reject) => {
+			setTimeout(() => {
+				createPar()
+			}, 300);
+		});
 	})
 	document.getElementById('container').appendChild(resetPar)
 }
