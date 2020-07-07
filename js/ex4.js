@@ -1,23 +1,9 @@
 let prenom = ''
-let xhr
-
 while (!prenom) {
   prenom = window.prompt('Veuillez saisir votre prénom')
 }
 
-try {
-  xhr = new ActiveXObject('Msxml2.XMLHTTP')
-} catch (e) {
-  try {
-    xhr = new ActiveXObject('Microsoft.XMLHTTP')
-  } catch (e2) {
-    try {
-      xhr = new XMLHttpRequest()
-    } catch (e3) {
-      xhr = false
-    }
-  }
-}
+const xhr = new XMLHttpRequest()
 
 xhr.onreadystatechange = function () {
   if (xhr.readyState === 4) {
