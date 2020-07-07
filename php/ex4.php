@@ -1,6 +1,6 @@
 <?php
-if (isset($_GET['prenom'])) {
-    echo "Bonjour, $prenom";
+if (isset($_POST['prenom'])) {
+    echo 'Bonjour, ' . $_POST['prenom'];
 } else {
-    echo "Erreur…";
+    echo 'Erreur : pas de prénom :(';
 }
