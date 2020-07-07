@@ -24,11 +24,12 @@ const createPar = () => {
     const removeElts = new Promise((resolve, reject) => {
       helloPar.remove()
       event.srcElement.remove()
-      resolve('ok')
+      setTimeout(() => {
+        resolve('ok')
+      }, 300)
     })
 
     removeElts.then(value => {
-      console.log(value)
       createPar()
     })
   })
