@@ -19,10 +19,18 @@ const createPar = () => {
   // 3. On crée un bouton pour supprimer le paragraphe
   deletePar = document.createElement('button')
   deletePar.innerHTML = 'Supprimer le paragraphe'
+
   deletePar.addEventListener('click', event => {
-    helloPar.remove()
-    event.srcElement.remove()
-    createPar()
+    const removeElts = new Promise((resolve, reject) => {
+      helloPar.remove()
+      event.srcElement.remove()
+      resolve('ok')
+    })
+
+    removeElts.then(value => {
+      console.log(value)
+      createPar()
+    })
   })
   document.getElementById('container').appendChild(deletePar)
 }
