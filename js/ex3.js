@@ -1,5 +1,6 @@
 let helloPar = ''
 let deletePar = ''
+let resetPar= ''
 
 const createPar = () => {
   // 1. On demande le prénom de l'utilisateur
@@ -20,11 +21,24 @@ const createPar = () => {
   deletePar = document.createElement('button')
   deletePar.innerHTML = 'Supprimer le paragraphe'
   deletePar.addEventListener('click', event => {
-    helloPar.remove()
-    event.srcElement.remove()
-    createPar()
+	helloPar.remove()
+	event.srcElement.remove()
+	bouclePar()
   })
   document.getElementById('container').appendChild(deletePar)
+}
+
+// bouton reset
+const bouclePar = () => {
+	resetPar = document.createElement('p')
+	resetPar = document.createElement('button')
+	resetPar.innerHTML = 'Réessayer'
+	resetPar.addEventListener('click', event => {
+		createPar()
+		resetPar.remove()
+		event.srcElement.remove()
+	})
+	document.getElementById('container').appendChild(resetPar)
 }
 
 // 4. Première initialisation
