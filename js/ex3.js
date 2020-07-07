@@ -39,8 +39,8 @@ const bouclePar = () => {
 		const reset = new Promise((resolve, reject) => {
 			setTimeout(() => {
 				createPar()
-			}, 300);
-		});
+			}, 300)
+		})
 	})
 	document.getElementById('container').appendChild(resetPar)
 }
