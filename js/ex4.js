@@ -8,7 +8,7 @@ $.ajax({
   url: './php/ex4.php',
   method: 'POST',
   data: {
-    prenoms: prenom
+    prenom: prenom
   }
 })
   .done(function (response) {
