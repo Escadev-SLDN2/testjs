@@ -3,19 +3,14 @@ while (!prenom) {
   prenom = window.prompt('Veuillez saisir votre prénom')
 }
 
-const xhr = new XMLHttpRequest()
-
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4) {
-    if (xhr.status === 200) {
-      document.getElementById('console').innerHTML = xhr.responseText
-    } else {
-      document.getElementById('console').innerHTML = xhr.status
-    }
+// Requête AJAX (jQuery)
+$.ajax({
+  url: './php/ex4.php',
+  method: 'POST',
+  data: {
+    prenoms: prenom
   }
-}
-
-const postData = 'prenom=' + prenom
-xhr.open('POST', './php/ex4.php', true)
-xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
-xhr.send(postData)
+})
+  .done(function (response) {
+    $('#console').html(response)
+  })
